@@ -29,13 +29,14 @@ class Coffecard extends StatelessWidget {
             height: height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              image: DecorationImage( image: (product?.image != null &&
-        product!.image.isNotEmpty &&
-        Uri.tryParse(product!.image)?.hasAbsolutePath == true)
-    ? CachedNetworkImageProvider(product!.image)
-    : const AssetImage(
-                AssetsData.cupcoffe)as ImageProvider ,
-),
+              image: DecorationImage(
+    image: (product?.image != null &&
+            product!.image.isNotEmpty )
+        ? CachedNetworkImageProvider(product!.image)
+        : AssetImage(AssetsData.cupcoffe) as ImageProvider,
+    fit: BoxFit.cover,
+  ),
+
               // image: DecorationImage(
               //   image: CachedNetworkImageProvider(product!.image ?? ''),
               //   fit: BoxFit.cover,

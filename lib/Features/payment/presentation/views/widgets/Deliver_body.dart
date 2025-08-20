@@ -1,5 +1,6 @@
 import 'package:coffe_shop_project/Features/payment/presentation/views/widgets/Customer_Flutter_map.dart';
 import 'package:coffe_shop_project/Features/payment/presentation/views/widgets/Delevery_To_Customer.dart';
+import 'package:coffe_shop_project/Features/payment/presentation/views/widgets/custom_position.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map_animations/flutter_map_animations.dart';
 import 'package:latlong2/latlong.dart';
@@ -24,13 +25,11 @@ class _DelivaryviewBodyState extends State<DelivaryviewBody>
     );
     super.initState();
   }
-
   @override
   void dispose() {
     _animatedMapController.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,37 +52,6 @@ class _DelivaryviewBodyState extends State<DelivaryviewBody>
           DeliveryToCustomer(),
         ],
       ),
-    );
-  }
-}
-
-class CustomerPositioned extends StatelessWidget {
-  const CustomerPositioned({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Positioned(
-          top: 50,
-          left: 16,
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
-        ),
-        Positioned(
-          top: 50,
-          right: 16,
-          child: CircleAvatar(
-            backgroundColor: Colors.grey,
-            child: IconButton(icon: Icon(Icons.my_location), onPressed: () {}),
-          ),
-        ),
-      ],
     );
   }
 }
