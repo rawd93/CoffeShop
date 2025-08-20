@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 class ProductService {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   Future<List<Product>> getproducts() async {
-    //بدي اجلب البيانات
     try {
       final snapShot = await firestore.collection('products').get();
       return snapShot.docs.map((doc) {

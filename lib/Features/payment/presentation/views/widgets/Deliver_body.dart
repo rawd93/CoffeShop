@@ -10,7 +10,6 @@ class DelivaryviewBody extends StatefulWidget {
   @override
   State<DelivaryviewBody> createState() => _DelivaryviewBodyState();
 }
-
 class _DelivaryviewBodyState extends State<DelivaryviewBody>
     with TickerProviderStateMixin {
   final store = LatLng(40.748817, -73.985000);

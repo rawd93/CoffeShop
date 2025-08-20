@@ -6,7 +6,6 @@ import 'package:coffe_shop_project/Features/payment/presentation/views/delivery_
 import 'package:coffe_shop_project/Features/payment/presentation/views/order_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 abstract class Approutes {
   static const coverView = '/coverView';
   static const khomeView = '/homeView';
@@ -22,7 +21,7 @@ abstract class Approutes {
       builder: (context, state) {
   final product = state.extra as Product;
   if (product is! Product) {
-    return const  Text('There is an Error'); // أو شاشة خطأ مناسبة
+    return const  Text('There is an Error'); 
   }
   return DetailesView(product: product as Product);
 }

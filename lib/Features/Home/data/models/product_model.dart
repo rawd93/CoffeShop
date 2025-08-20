@@ -22,8 +22,6 @@ class Product {
      
   });
   factory Product.fromJson(Map<String, dynamic> map) {
-    //لتحويل البيانات القادمة من Firestore إلى كائن Dart.
-    //تحويل ماب من فاير ستور لكائن تستخدم ع تستخدم لجلب البيانات
     return Product(
       name: map['name'] ?? '',
       type: map['type'] ?? '',
@@ -41,7 +39,6 @@ class Product {
     );
   }
   Map<String, dynamic> toJson() {
-    // حويل كائن (Object) من النوع Product إلى خريطة (Map) يمكن إرسالها إلى Firebase.
     return {
       'name': name,
       'type': type,

@@ -2,12 +2,10 @@
 import 'package:coffe_shop_project/core/utiles/Assets.dart';
 import 'package:coffe_shop_project/core/utiles/styles.dart';
 import 'package:flutter/material.dart';
-
 class CustomTextFieled extends StatelessWidget {
   const CustomTextFieled({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -40,7 +38,7 @@ class CustomTextFieled extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.black87,
-                ), // حدود عند التركيز
+                ), 
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),

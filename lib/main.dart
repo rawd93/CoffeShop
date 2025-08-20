@@ -1,7 +1,5 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coffe_shop_project/Features/payment/data/repos/repos_payment_impl.dart';
-import 'package:coffe_shop_project/Features/payment/presentation/manager/bloc_observer.dart';
 import 'package:coffe_shop_project/Features/payment/presentation/manager/cubit/payment_cubit.dart';
 import 'package:coffe_shop_project/core/Funiction/AppRoutes.dart';
 import 'package:coffe_shop_project/core/api_keys.dart';

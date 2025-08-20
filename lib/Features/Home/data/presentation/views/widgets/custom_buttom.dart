@@ -13,7 +13,6 @@ class CustomBottom extends StatelessWidget {
   final String? text;
   final int? index;
   final Color? colortext;
-  //اذا تم اختيار زر اولا صح او خطا
   final bool? isSelected;
   final Alignment? alignment;
   final Icon? icon;
@@ -40,7 +39,7 @@ class CustomBottom extends StatelessWidget {
           text ?? '',
           style: Styles.textStyle16.copyWith(color: colortext ?? Colors.black),
         ),// النص
-       const   Icon(Icons.arrow_forward), // الأيقونة في النهاية
+       const   Icon(Icons.arrow_forward), 
       ],
           // <<< هذا الجديد
         ),

@@ -8,7 +8,7 @@ class FeatureListOfCoffe extends StatelessWidget {
     required this.onselctedCategory,
   });
 
-  final int selectIndex; // 
+  final int selectIndex; 
   final void Function(int index) onselctedCategory;
 
   final List<String> texts = ['ALLCoffe', 'Machiato', 'Latte', 'Americano'];

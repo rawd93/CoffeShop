@@ -13,7 +13,6 @@ class CustomReadMoreText extends StatelessWidget {
     return ReadMoreText(
       text,
       trimLines: 2,
-      // colorClickableText: Colors.red,
       moreStyle: Styles.textStyle14
           .copyWith(fontWeight: FontWeight.w600, color: Colors.red),
       trimMode: TrimMode.Line,

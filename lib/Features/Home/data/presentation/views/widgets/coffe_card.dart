@@ -3,7 +3,6 @@ import 'package:coffe_shop_project/Features/Home/data/models/product_model.dart'
 import 'package:coffe_shop_project/core/utiles/Assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class Coffecard extends StatelessWidget {
   const Coffecard({
     super.key,
@@ -18,7 +17,6 @@ class Coffecard extends StatelessWidget {
   final Widget? topWidget;
   @override
   Widget build(BuildContext context) {
-    print("DEBUG Product Image: ${product?.image}");
     return Align(
       alignment: Alignment.topLeft,
       child: Stack(
@@ -36,11 +34,6 @@ class Coffecard extends StatelessWidget {
         : AssetImage(AssetsData.cupcoffe) as ImageProvider,
     fit: BoxFit.cover,
   ),
-
-              // image: DecorationImage(
-              //   image: CachedNetworkImageProvider(product!.image ?? ''),
-              //   fit: BoxFit.cover,
-              // ),
             ),
           ),
           if (topWidget != null)

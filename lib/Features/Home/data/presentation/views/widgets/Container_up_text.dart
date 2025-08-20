@@ -9,7 +9,6 @@ class ContainerupText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        //top: 40,
         right: 120,
       ),
       child: Center(
