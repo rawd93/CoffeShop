@@ -3,7 +3,6 @@ import 'package:coffe_shop_project/Features/Home/data/models/product_model.dart'
 import 'package:coffe_shop_project/Features/Home/data/presentation/views/widgets/about_coffe.dart';
 import 'package:coffe_shop_project/core/utiles/Assets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetailIteam extends StatelessWidget {
   const DetailIteam({super.key, required this.product});

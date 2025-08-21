@@ -13,7 +13,7 @@ void main()  async{
    await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  Stripe.publishableKey = ApiKeys.publishkey;
+  Stripe.publishableKey = ApiKeys.stripePublishableKey;
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {

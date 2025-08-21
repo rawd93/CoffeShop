@@ -8,26 +8,21 @@ import 'package:coffe_shop_project/core/utiles/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
-//  paymentIntentobject create paymentintent(amount,currence,customoridمين يلي عندو نية دفع)//في نية لدفع او شراء منتج
-// keysecret    CreateEphemeralkey(customoreId)غير ضروروي غير اذا بدي استخد كستمر
-//init payment sheet(, mearchinDisplayName,payment IntentClientSecret,ephemeralKey)//تظهرلي لinformation
-//presentPaymentsheet()//الهدف منا تعرضلك  paymentsheet
+
 class StripeServices {
   final ApiService apiService = ApiService();
 
   Future<PaymentIntentModel> createPaymentIntent(
-      //كريت يسمنت انتت
       PaymentIntentInputModel paymentIntentInputModel) async {
     var response = await apiService.post(
         contentType: Headers.formUrlEncodedContentType,
         body: paymentIntentInputModel.toJson(),
         url: 'https://api.stripe.com/v1/payment_intents',
-        token: ApiKeys.secretkey);
+        token: ApiKeys.stripeSecretKey);
  var paymentIntentModel = PaymentIntentModel.fromJson(response.data); // بارث لداتا
     return paymentIntentModel;
   }
 
-// سيت اب للبيمينت شيت
   Future initpaymentsheet({required InitPaymentSheetInputtModel initPaymentSheetInputtModel}) async {
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(
@@ -40,9 +35,8 @@ class StripeServices {
     );
   }
   Future displayPaymentsheet() async {
-    await Stripe.instance.presentPaymentSheet(); //اظهار لبيمنت شيت
+    await Stripe.instance.presentPaymentSheet();
   }
-//دمج3 ميثود مع بعض
   makePayment(
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     var paymentIntentModel = await createPaymentIntent(paymentIntentInputModel);
@@ -63,13 +57,13 @@ class StripeServices {
         contentType: Headers.formUrlEncodedContentType,
         body: {'customer': customorId},
         url: 'https://api.stripe.com/v1/ephemeral_keys',
-        token: ApiKeys.secretkey,
+        token: ApiKeys.stripeSecretKey,
         headers: {
-          'Authorization': "Bearer ${ApiKeys.secretkey}",
+          'Authorization': "Bearer ${ApiKeys.stripeSecretKey}",
           'Stripe-Version': '2025-04-30.basil'
         });
 
-    var ephemeralKey = Ephemeralkeymodel.fromJson(response.data); // بارث لداتا
+    var ephemeralKey = Ephemeralkeymodel.fromJson(response.data); 
     return ephemeralKey;
   }
 }
