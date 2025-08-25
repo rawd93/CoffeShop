@@ -15,20 +15,22 @@ class DetailIteam extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.25,
-            decoration: BoxDecoration(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                image: product!.image != null && product.image.isNotEmpty?
-                CachedNetworkImageProvider(product.image)
-                : AssetImage(
-                AssetsData.cupcoffe)as ImageProvider,
 
-                fit: BoxFit.fill,
-              ),
+              child: (product?.image != null && product!.image.isNotEmpty)
+                  ? CachedNetworkImage(
+                      fit: BoxFit.cover,
+                      imageUrl: product!.image,
+                      errorWidget: (context, _, _) {
+                        return Icon(Icons.image);
+                      },
+                    )
+                  : Image.asset(AssetsData.cupcoffe, fit: BoxFit.cover),
             ),
           ),
         ),
-         AboutCoffe(product:product ),
+        AboutCoffe(product: product),
       ],
     );
   }

@@ -7,13 +7,16 @@ import 'package:coffe_shop_project/core/api_keys.dart';
 import 'package:coffe_shop_project/core/utiles/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-
-
 class StripeServices {
   final ApiService apiService = ApiService();
-
+  ////  paymentIntentobject create paymentintent(amount,currence,customoridمين يلي عندو نية دفع)//في نية لدفع او شراء منتج
+// keysecret    CreateEphemeralkey(customoreId)غير ضروروي غير اذا بدي استخد كستمر
+//init payment sheet(, mearchinDisplayName,payment IntentClientSecret,ephemeralKey)//تظهرلي لinformation
+//presentPaymentsheet()//الهدف منا تعرضلك  paymentsheet
   Future<PaymentIntentModel> createPaymentIntent(
       PaymentIntentInputModel paymentIntentInputModel) async {
+              print(">> Using Secret Key: ${ApiKeys.stripeSecretKey}");
+
     var response = await apiService.post(
         contentType: Headers.formUrlEncodedContentType,
         body: paymentIntentInputModel.toJson(),
@@ -22,7 +25,6 @@ class StripeServices {
  var paymentIntentModel = PaymentIntentModel.fromJson(response.data); // بارث لداتا
     return paymentIntentModel;
   }
-
   Future initpaymentsheet({required InitPaymentSheetInputtModel initPaymentSheetInputtModel}) async {
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(

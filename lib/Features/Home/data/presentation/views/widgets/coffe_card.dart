@@ -3,6 +3,7 @@ import 'package:coffe_shop_project/Features/Home/data/models/product_model.dart'
 import 'package:coffe_shop_project/core/utiles/Assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class Coffecard extends StatelessWidget {
   const Coffecard({
     super.key,
@@ -22,19 +23,25 @@ class Coffecard extends StatelessWidget {
       child: Stack(
         alignment: Alignment.topLeft,
         children: [
-          Container(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-    image: (product?.image != null &&
-            product!.image.isNotEmpty )
-        ? CachedNetworkImageProvider(product!.image)
-        : AssetImage(AssetsData.cupcoffe) as ImageProvider,
-    fit: BoxFit.cover,
-  ),
-            ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+
+            child: (product?.image != null && product!.image.isNotEmpty)
+                ? CachedNetworkImage(
+                    width: width,
+                    errorWidget: (context, _, _) {
+                      return Icon(Icons.image);
+                    },
+                    fit: BoxFit.cover,
+                    height: height,
+                    imageUrl: product!.image,
+                  )
+                : Image.asset(
+                    AssetsData.cupcoffe,
+                    height: height,
+                    width: width,
+                    fit: BoxFit.cover,
+                  ),
           ),
           if (topWidget != null)
             Positioned(right: 0, top: 0, child: topWidget!),
