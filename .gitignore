@@ -46,3 +46,4 @@ app.*.map.json
 # Environment and secrets
 .env
 lib/core/api_keys.dart
+
